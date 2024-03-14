@@ -24,7 +24,7 @@ function Home() {
         <Row>
           <Col size="md-12">
             <p>
-        This is some blurb about Wheelz. Will probably replace with car cards
+
             </p>
 
           </Col>
