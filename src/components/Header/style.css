@@ -1,3 +1,9 @@
-nav.navbar.navbar-default {
+/* nav.navbar.navbar-default {
   margin-bottom: 50;
+} */
+
+.header-wrapper{
+width: 80%;
+background-color: white;
+margin-left: 50px;
 }

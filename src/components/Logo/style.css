@@ -1,0 +1,13 @@
+.logoImage{
+    height: 100px;
+    width: 200px;
+    object-fit:cover;
+
+
+}
+.wording{
+    color: antiquewhite;
+    position: fixed;
+    left: 5px;
+    top: 75px;
+}
