@@ -3,24 +3,9 @@ import "./style.css";
 
 
 const CarCard = ({ car }) => {
-  const [imageSrc, setImageSrc] = useState(null);
-
-  useEffect(() => {
-    const loadImage = async () => {
-      try {
-        const importedImage = await import(`./assets/images/cars/${car.image1}`);
-        setImageSrc(importedImage.default);
-      } catch (error) {
-        console.error('Error loading image:', error);
-      }
-    };
-
-    loadImage();
-  }, [car.image1]);
-
   return (
     <div className="car-card">
-      {imageSrc && <img src={imageSrc} alt={car.car_brand} />}
+      <img src={car.image1} alt={car.car_brand} />
       <h2>{car.car_brand}</h2>
       <p>Type: {car.type}</p>
       <p>Location: {car.location}</p>
@@ -30,6 +15,9 @@ const CarCard = ({ car }) => {
     </div>
   );
 };
+
+
+
 
 const CarList = ({ cars }) => {
   return (
@@ -41,22 +29,7 @@ const CarList = ({ cars }) => {
   );
 };
 
-// const CarSearch = ({ data, type, location }) => {
-//   const filteredCars = data.filter(car => car.type === type && car.location === location);
 
-//   return (
-//     <div>
-//       <h1>Available Cars</h1>
-//       {filteredCars.length === 0 ? (
-//         <p>No cars found matching the criteria.</p>
-//       ) : (
-//         <CarList cars={filteredCars} />
-//       )}
-//     </div>
-//   );
-// };
-
-// export default CarSearch;
 
 
 const CarSearch = ({ data }) => {
