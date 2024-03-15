@@ -8,7 +8,7 @@ const CarCard = ({ car }) => {
   useEffect(() => {
     const loadImage = async () => {
       try {
-        const importedImage = await import(`./assets/images/cars/${car.image1}`);
+        // const importedImage = await import(`./assets/images/cars/${car.image1}`);
         setImageSrc(importedImage.default);
       } catch (error) {
         console.error('Error loading image:', error);
