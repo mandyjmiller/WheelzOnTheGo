@@ -7,8 +7,6 @@ import Logo from "../../components/Logo";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import "./home.css";
-import CarCard from "../../components/CarCard";
-import carData from "../../carData";
 import carsData from "../../assets/car_data";
 import CarSearch from "../../components/CarSearch";
 
