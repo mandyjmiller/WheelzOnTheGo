@@ -7,45 +7,10 @@ import './style.css';
 function Header() {
   return (
     <div className="header-wrapper">
-
-       
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <NavLink
-                to="/"
-                end
-                className={({ isActive }) =>
-                  isActive ? 'nav-link active' : 'nav-link'
-                }
-              >
-                Home
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                to="/portfolio"
-                className={({ isActive }) =>
-                  isActive ? 'nav-link active' : 'nav-link'
-                }
-              >
-                Browse Cars
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                to="/contact"
-                className={({ isActive }) =>
-                  isActive ? 'nav-link active' : 'nav-link'
-                }
-              >
-                Contact Us
-              </NavLink>
-            </li>
-          </ul>
-        </div>
-  
-
+        <ul className="nav-links"> 
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">View All Cars</a></li>
+        </ul>
     </div>
   );
 }
