@@ -15,6 +15,7 @@ const CarCard = ({card}) => {
           <li>Brand: {card.car_brand}</li>
           <li>Rate: {card.hourlyPrice}</li>
         </ul>
+
       </div>
     </div>
   );

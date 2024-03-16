@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import "./style.css";
 
+
 const CarCard = ({ car }) => {
+
   return (
     <div className="car-card">
       <img src={car.image1} alt={car.car_brand} />
@@ -12,11 +14,13 @@ const CarCard = ({ car }) => {
       <li>Hourly Price: £{car.hourlyPrice}</li>
       <li>Engine Size: {car.engineSize}</li>
       <li>Engine Sound: {car.engineSound}</li>
+
       </ul>
       <button>Add to Favourites</button>
     </div>
   );
 };
+
 
 const CarList = ({ cars }) => {
   return (

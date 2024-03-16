@@ -9,6 +9,8 @@ import Footer from "../../components/Footer";
 import "./home.css";
 import CarCard from "../../components/CarCard";
 import carData from "../../carData";
+import carsData from "../../assets/car_data";
+import CarSearch from "../../components/CarSearch";
 
 function Home() {
   return (
@@ -18,13 +20,17 @@ function Home() {
         <Header />
       </div>
       <div className="HomeCardWrapper">
-      
-      {carData.map((card, index) => (
-        <CarCard key={index} card={card} />
-      ))}
+
+      <CarSearch data={carsData} type="Hatchback" location="London" />
+  
       </div>
     </div>
   );
 }
  
 export default Home;
+
+// {carData.map((card, index) => (
+//   <CarCard key={index} card={card} />
+// ))}
+
