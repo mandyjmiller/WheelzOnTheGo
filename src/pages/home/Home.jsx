@@ -6,19 +6,25 @@ import Col from "../../components/Col";
 import Logo from "../../components/Logo";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import "./home.css" 
+import "./home.css";
+import CarCard from "../../components/CarCard";
+import carData from "../../carData";
 
 function Home() {
   return (
     <div>
       <div className="TopBar">
-      <Logo />
+        <Logo />
         <Header />
-        
       </div>
-      <Container style={{ marginTop: 30 }}>{/* <Footer/> */}</Container>
+      <div className="HomeCardWrapper">
+      
+      {carData.map((card, index) => (
+        <CarCard key={index} card={card} />
+      ))}
+      </div>
     </div>
   );
 }
-
+ 
 export default Home;
