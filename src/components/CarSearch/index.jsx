@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import "./style.css";
 
+
+///THIS IS THE INDIVIDUAL CAR DISPLAY CARD
 const CarCard = ({ car }) => {
   return (
     <div className="car-card">
@@ -18,6 +20,8 @@ const CarCard = ({ car }) => {
   );
 };
 
+///THIS IS THE ENTIRE MODULE WHICH DISPLAYS ALL THE CARDS. className="car-list" IS DEFINED IN THE CSS AND IS SET TO FLEX
+//WE NEED TO MODIFY THIS TO DISPLAY ONLY 20 CARS AND 'PREV' 'NEXT' BUTTONS
 const CarList = ({ cars }) => {
   return (
     <div className="car-list">
@@ -29,7 +33,7 @@ const CarList = ({ cars }) => {
 };
 
 
-
+///THIS DEFINES THE SEARCH. ALSO HANDLERS TO AVOID ANY ERRORS RESULTING FROM CASE SENSITIVITY
 const CarSearch = ({ data }) => {
   const [type, setType] = useState('');
   const [location, setLocation] = useState('');
@@ -44,6 +48,10 @@ const CarSearch = ({ data }) => {
     setFilteredCars(filtered);
   };
 
+
+
+  ///THIS IS THE SEARCH FORM. WE SHOULD CHANGE type="text" TO LIST POPULATED BY THE AVAILABLE OPTIONS
+  //ALSO SHOULD ADD 'DATE SEARCH'
   return (
     <div>
       <h1 className='heading'>Search for Cars</h1>
