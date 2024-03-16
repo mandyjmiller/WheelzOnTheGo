@@ -9,7 +9,7 @@ function Header() {
     <div className="header-wrapper">
         <ul className="nav-links"> 
           <li><a href="#">About Us</a></li>
-          <li><a href="#">View All Cars</a></li>
+          <li><a href="/view-all">View All Cars</a></li>
         </ul>
     </div>
   );

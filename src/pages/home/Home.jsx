@@ -11,6 +11,7 @@ import carsData from "../../assets/car_data";
 import CarSearch from "../../components/CarSearch";
 
 function Home() {
+  const fewCards = carsData.slice(0,8);
   return (
     <div>
       <div className="TopBar">
@@ -19,7 +20,7 @@ function Home() {
       </div>
       <div className="HomeCardWrapper">
 
-      <CarSearch data={carsData} type="Hatchback" location="London" />
+      <CarSearch data={fewCards} type="Hatchback" location="London" />
   
       </div>
     </div>
