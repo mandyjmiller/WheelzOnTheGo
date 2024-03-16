@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 
 import carsData from "./assets/car_data";
 import CarSearch from "./components/CarSearch";
+import ViewAll from "./pages/view-all/view-all";
 
 function App() {
   return (
@@ -20,9 +21,10 @@ function App() {
         {/* <Route path="/index" element={<Home />} /> */}
         <Route path="/portfolio" element={<ProjectGallery />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/view-all" element={<ViewAll/>} />
       </Routes>
       {/* Render CarSearch component here. But should probably be moved to Home page */}
-      <CarSearch data={carsData} type="Hatchback" location="London" />
+      
     </Router>
   );
 }
