@@ -3,6 +3,7 @@ import "./style.css";
 
 
 const CarCard = ({ car }) => {
+
   return (
     <div className="car-card">
       <img src={car.image1} alt={car.car_brand} />
@@ -15,6 +16,7 @@ const CarCard = ({ car }) => {
     </div>
   );
 };
+
 
 
 
