@@ -2,8 +2,17 @@ import React, { useState, useEffect } from 'react';
 import "./style.css";
 
 
+
+
 ///THIS IS THE INDIVIDUAL CAR DISPLAY CARD
 const CarCard = ({ car }) => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1
+  };
   return (
     <div className="car-card">
       <img src={car.image1} alt={car.car_brand} />
@@ -25,6 +34,7 @@ const CarCard = ({ car }) => {
 const CarList = ({ cars }) => {
   return (
     <div className="car-list">
+      <Slider></Slider>
       {cars.map(car => (
         <CarCard key={car.id} car={car} />
       ))}

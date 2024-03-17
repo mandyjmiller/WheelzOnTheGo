@@ -1,0 +1,18 @@
+.about-us-container{
+border: 3px dashed grey;
+padding: 15px;
+margin: 25px;
+text-align: center;
+}
+p{
+    color: white;
+    font-size: large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: lighter;
+}
+#aboutUsHeading{   
+    color: white;
+    font-weight: 800;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: strong;
+}

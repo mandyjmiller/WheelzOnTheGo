@@ -10,8 +10,9 @@ import "./home.css";
 import carsData from "../../assets/car_data";
 import CarSearch from "../../components/CarSearch";
 
+
 function Home() {
-  const fewCards = carsData.slice(0,8);
+  const fewCards = carsData.slice(0,4);
   return (
     <div>
       <div className="TopBar">
