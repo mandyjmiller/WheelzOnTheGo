@@ -3,8 +3,6 @@ import Hero from "../../components/Logo";
 import Container from "../../components/Container";
 import Row from "../../components/Row";
 import Col from "../../components/Col";
-import Logo from "../../components/Logo";
-import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import "./home.css";
 import carsData from "../../assets/car_data";
@@ -15,10 +13,7 @@ function Home() {
   const fewCards = carsData.slice(0,4);
   return (
     <div>
-      <div className="TopBar">
-        <Logo />
-        <Header />
-      </div>
+     
       <div className="HomeCardWrapper">
 
       <CarSearch data={fewCards} type="Hatchback" location="London" />
