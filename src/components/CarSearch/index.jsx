@@ -6,6 +6,9 @@ import "./style.css";
 
 ///THIS IS THE INDIVIDUAL CAR DISPLAY CARD
 const CarCard = ({ car }) => {
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
   const settings = {
     dots: true,
     infinite: true,
@@ -16,13 +19,14 @@ const CarCard = ({ car }) => {
   return (
     <div className="car-card">
       <img src={car.image1} alt={car.car_brand} />
-      <h2>{car.car_brand}</h2>
+      <h2>{capitalizeFirstLetter(car.car_brand)}</h2>
+      
       <ul style={{listStyleType: "none"}}>
-      <li>Type: {car.type}</li>
+      {/* <li>Type: {car.type}</li>
       <li>Location: {car.location}</li>
       <li>Hourly Price: £{car.hourlyPrice}</li>
       <li>Engine Size: {car.engineSize}</li>
-      <li>Engine Sound: {car.engineSound}</li>
+      <li>Engine Sound: {car.engineSound}</li> */}
       </ul>
       <button>Add to Favourites</button>
     </div>
