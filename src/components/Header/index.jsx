@@ -10,13 +10,16 @@ import Logo from '../Logo'; //  Import logo from logo folder
 function Header() {
   return (
     <div className="header-wrapper">
-      <Logo />
+      <Link to="/"><Logo /></Link>
         <ul className="nav-links"> 
 
           <li><Link to="/about-us">About Us</Link></li>   
           <li><Link to="/view-all">View All Cars</Link></li>
+          <li><Link to="/contact">Contact Us</Link></li>
 
         </ul>
+
+       <Link to="#"><button>My Saved Cars</button></Link>
     </div>
   );
 }

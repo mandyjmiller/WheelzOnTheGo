@@ -27,7 +27,6 @@ function App() {
         <Route path="/view-all" element={<ViewAll />} />
         <Route path="/about-us" element={<AboutUs />} />
       </Routes>
-      {/* Render CarSearch component here. But should probably be moved to Home page */}
     </Router>
   );
 }

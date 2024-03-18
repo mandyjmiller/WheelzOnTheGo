@@ -5,6 +5,15 @@
 
 }
 
+.Hero{
+    display: flex;
+    flex-wrap:wrap;
+    gap: 50px;
+    margin-top: 10px;
+    
+
+}
+
 .HomeCardWrapper{
     display: flex;
     flex-wrap:wrap;
