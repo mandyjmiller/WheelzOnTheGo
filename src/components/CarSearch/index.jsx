@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Slider from 'react-slick';
 import "./style.css";
-import engineSound from "../../assets/sounds/V6.mp3";
-
+import engineSound from "../../assets/sounds/Powerfull.mp3";
 
 ///THIS IS THE INDIVIDUAL CAR DISPLAY CARD
 const CarCard = ({ car }) => {
@@ -26,8 +25,10 @@ const CarCard = ({ car }) => {
   }, [car.id]);
 
   const playEngineSound = () => {
-    audio.play(); // Play the engine sound when the button is clicked
+    const audio = new Audio(engineSound);
+    audio.play();
   };
+
   
  
   const addToFavorites = () => {
@@ -60,10 +61,10 @@ const CarCard = ({ car }) => {
         <li>Engine Size: {car.engineSize}</li>
         <li>Engine Sound: {car.engineSound}</li>
       </ul>
-      <button onClick={addToFavorites}>
+      <button onClick={addToFavorites} className="custom-button">
         {isFavorite ? 'Saved \u2665' : 'Add to Favorites \u2764'}
       </button>
-      <button onClick={playEngineSound}>&#128362;</button> {/* Button to play engine sound */}
+      <button onClick={playEngineSound} className="engine-button">&#128362;</button>
     </div>
   );
 };
