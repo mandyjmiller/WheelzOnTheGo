@@ -97,13 +97,15 @@ const CarSearch = ({ data }) => {
   const handleSearch = () => {
     const filtered = data.filter((car) => {
       const typeMatch = car.type.toLowerCase().includes(type.toLowerCase());
-      const brandMatch = car.car_brand.toLowerCase().includes(brand.toLowerCase());
+      // Added brand search button to search car by brand name
+      const brandMatch = car.car_brand.toLowerCase().includes(brand.toLowerCase()); 
       const locationMatch = car.location
         .toLowerCase()
         .includes(location.toLowerCase());
       return typeMatch && locationMatch && brandMatch; 
     });
     setFilteredCars(filtered);
+    // Clears search input 
     setType("");
     setBrand("");
     setLocation("");
@@ -121,6 +123,7 @@ const CarSearch = ({ data }) => {
           value={type}
           onChange={(e) => setType(e.target.value)}
         />
+         {/* Input for car brand search */}
                 <input
           type="text"
           placeholder="Enter car brand name"
