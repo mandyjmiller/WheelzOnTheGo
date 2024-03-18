@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Slider from 'react-slick';
 import "./style.css";
+import engineSound from "../../assets/sounds/V6.mp3";
+
 
 ///THIS IS THE INDIVIDUAL CAR DISPLAY CARD
 const CarCard = ({ car }) => {
@@ -14,12 +16,19 @@ const CarCard = ({ car }) => {
 
   // Function to add the car to favourites :
   const [isFavorite, setIsFavorite] = useState(false);
+  const [audio] = useState(new Audio(engineSound)); //  audio source is set to the 'engineSound'
+
   useEffect(() => {
     // Check if the car is already in favorites when the component mounts
     const existingFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
     const isAlreadyFavorite = existingFavorites.some(favorite => favorite.id === car.id);
     setIsFavorite(isAlreadyFavorite);
   }, [car.id]);
+
+  const playEngineSound = () => {
+    audio.play(); // Play the engine sound when the button is clicked
+  };
+  
  
   const addToFavorites = () => {
     const existingFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -54,6 +63,7 @@ const CarCard = ({ car }) => {
       <button onClick={addToFavorites}>
         {isFavorite ? 'Saved \u2665' : 'Add to Favorites \u2764'}
       </button>
+      <button onClick={playEngineSound}>&#128362;</button> {/* Button to play engine sound */}
     </div>
   );
 };
