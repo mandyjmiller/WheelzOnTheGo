@@ -12,8 +12,10 @@ function Header() {
     <div className="header-wrapper">
       <Logo />
         <ul className="nav-links"> 
+
           <li><Link to="/about-us">About Us</Link></li>   
           <li><Link to="/view-all">View All Cars</Link></li>
+
         </ul>
     </div>
   );

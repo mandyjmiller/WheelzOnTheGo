@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import Home from "./pages/home/Home";
 import ProjectGallery from "./pages/ProjectGallery"; //- NOT USING THIS BUT IT#S STILL IN NAV BAR
-import Contact from "./pages/Contact";
+import Contact from "./pages/contact/Contact";
 
 import carsData from "./assets/car_data";
 import CarSearch from "./components/CarSearch";
