@@ -27,6 +27,7 @@ function App() {
         <Route path="/view-all" element={<ViewAll />} />
         <Route path="/about-us" element={<AboutUs />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
