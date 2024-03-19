@@ -11,6 +11,35 @@ const CarCard = ({ car }) => {
     slidesToShow: 4,
     slidesToScroll: 1,
   };
+
+  // Function to add the car to favourites :
+  const [isFavorite, setIsFavorite] = useState(false);
+  useEffect(() => {
+    // Check if the car is already in favorites when the component mounts
+    const existingFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const isAlreadyFavorite = existingFavorites.some(favorite => favorite.id === car.id);
+    setIsFavorite(isAlreadyFavorite);
+  }, [car.id]);
+ 
+  const addToFavorites = () => {
+    const existingFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const isAlreadyFavorite = existingFavorites.some(favorite => favorite.id === car.id);
+
+    if (!isAlreadyFavorite) {
+      const updatedFavorites = [...existingFavorites, car];
+      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+      setIsFavorite(true);
+      console.log('Added to favorites:', car);
+    } else {
+      const updatedFavorites = existingFavorites.filter(favorite => favorite.id !== car.id);
+      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+      setIsFavorite(false);
+      console.log('Car is already in favorites:', car);
+    }
+
+    
+
+  };
   return (
     <div className="car-card">
       <img src={car.image1} alt={car.car_brand} />
@@ -22,7 +51,9 @@ const CarCard = ({ car }) => {
         <li>Engine Size: {car.engineSize}</li>
         <li>Engine Sound: {car.engineSound}</li>
       </ul>
-      <button>Add to Favourites</button>
+      <button onClick={addToFavorites}>
+        {isFavorite ? 'Saved \u2665' : 'Add to Favorites \u2764'}
+      </button>
     </div>
   );
 };
