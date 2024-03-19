@@ -18,6 +18,7 @@ function App() {
       <div className="sticky-top">  {/* This div is created and routered/ rendered from the Header components folder to display the Header here */}
         <Header />
       </div>
+      <div>
       <Routes>
         {/* These placehopders can be swapped out Don't need portfolio / Projec*/}
         <Route path="/" element={<Home />} />
@@ -28,6 +29,7 @@ function App() {
         <Route path="/about-us" element={<AboutUs />} />
       </Routes>
       <Footer />
+      </div>
     </Router>
   );
 }
