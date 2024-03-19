@@ -1,25 +1,25 @@
 
 
-import {Link} from "react-router-dom"
+import {Link, NavLink} from "react-router-dom"
 
  const NavBar = () => {
   return ( 
-    <nav className>
-        <Link to="/">Website </Link>
+    <nav>
+        <Link to="/" className = "title">Website </Link>
     <ul>
         <li>
-            <Link to="/about" >About</Link>
+            <NavLink to="/about" >About</NavLink>
             </li>
         <li>
-            <Link to="/browse cars" >Browse Cars</Link>
+            <NavLink to="/browse cars" >Browse Cars</NavLink>
             </li>
         <li>
-            <Link to="/services">Services</Link>
+            <NavLink to="/services">Services</NavLink>
             </li>
         <li>
-            <Link  to="/favourites">Favourites</Link></li>
+            <NavLink  to="/favourites">Favourites</NavLink></li>
 
-        <li><Link to="/contact">Contact</Link>
+        <li><NavLink to="/contact">Contact</NavLink>
         </li>
     </ul>
 

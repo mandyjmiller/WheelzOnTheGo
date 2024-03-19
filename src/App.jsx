@@ -47,7 +47,7 @@ function App() {
             //  <Route path="/index" element={<Home/>} />
             //  <Route path="/portfolio" element={<ProjectGallery/>} />
             //  <Route path="/contact" element={<Contact/>} />
-           </Routes>
+           //n</Routes>
           {/* Render CarSearch component here. But should probably be moved to Home page */}
         //   <CarSearch data={carsData} type="Hatchback" location="London" />
         // </Wrapper>
