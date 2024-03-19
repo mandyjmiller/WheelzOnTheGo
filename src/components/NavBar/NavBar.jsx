@@ -5,6 +5,7 @@ import {Link} from "react-router-dom"
 export const NavBar = () => {
   return ( 
     <nav>
+        <Link to="/">Website </Link>
     <ul>
         <li>
             <Link to="/about" >About</Link>
@@ -16,10 +17,7 @@ export const NavBar = () => {
             <Link to="services">Services</Link>
             </li>
         <li>
-            <Link to="location">Location</Link>
-            </li>
-        <li>
-            <Link  to="favourites">FaSvourites</Link></li>
+            <Link  to="favourites">Favourites</Link></li>
 
         <li><Link to="contact">Contact</Link>
         </li>

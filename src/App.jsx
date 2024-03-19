@@ -6,11 +6,10 @@ import Wrapper from './components/Wrapper';
 import Header from './components/Header';
 import Home from './pages/Home';
 import ProjectGallery from './pages/ProjectGallery'; //- NOT USING THIS BUT IT#S STILL IN NAV BAR 
-import Contact from './pages/Contact';
+import Contact from './pages/Contact'; 
 
 import carsData from './assets/car_data.json';
 import CarSearch from './components/CarSearch';
-
 
 
 function App() {
