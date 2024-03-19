@@ -9,7 +9,7 @@ import Logo from '../Logo'; //  Import logo from logo folder
 
 function Header() {
   return (
-    <div className="header-wrapper">
+    <div className="header-wrapper sticky-top">
       <Link to="/"><Logo /></Link>
         <ul className="nav-links"> 
 
