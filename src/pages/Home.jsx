@@ -4,8 +4,7 @@ import Container from '../components/Container';
 import Row from '../components/Row';
 import Col from '../components/Col';
 import wheelzLogo from '../assets/images/logo_1.png'
-
-
+import CarSearch from '../components/CarSearch';
 
 
 function Home() {
@@ -31,6 +30,7 @@ function Home() {
         </Row>
       </Container>
     </div>
+    
   );
 }
 
