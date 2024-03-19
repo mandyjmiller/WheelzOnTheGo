@@ -30,22 +30,23 @@ function App() {
         <Route path= "/favourites" element={<Favourites/>}/>
         <Route path= "/home" element={<Home/>}/>
       </Routes>
+      <CarSearch data={carsData} type="Hatchback" location="London" />
     </div>
  </Router>
 );
 }
     
 
-    <Router>
-       <div>
-         <Header />
-        <Wrapper>
-           <Routes>
+    // <Router>
+    //    <div>
+    //      <Header />
+    //     <Wrapper>
+    //        <Routes>
             {/* These placehopders can be swapped out Don't need portfolio / Projec*/}
-             <Route path="/" element={<Home/>} />
-             <Route path="/index" element={<Home/>} />
-             <Route path="/portfolio" element={<ProjectGallery/>} />
-             <Route path="/contact" element={<Contact/>} />
+            //  <Route path="/" element={<Home/>} />
+            //  <Route path="/index" element={<Home/>} />
+            //  <Route path="/portfolio" element={<ProjectGallery/>} />
+            //  <Route path="/contact" element={<Contact/>} />
            </Routes>
           {/* Render CarSearch component here. But should probably be moved to Home page */}
         //   <CarSearch data={carsData} type="Hatchback" location="London" />
