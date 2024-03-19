@@ -11,6 +11,7 @@ import CarSearch from "./components/CarSearch";
 import ViewAll from "./pages/view-all/view-all";
 import AboutUs from "./pages/about us/about-us";
 import Header from "./components/Header";
+import MySavedCars from "./pages/my-saved-cars/my-saved-cars";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/view-all" element={<ViewAll />} />
         <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/my-saved-cars" element={<MySavedCars />} />
       </Routes>
       <Footer />
       </div>

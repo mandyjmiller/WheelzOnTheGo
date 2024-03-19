@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Slider from 'react-slick';
 import "./style.css";
-import engineSound from "../../assets/sounds/Powerfull.mp3";
+import Powerfull from "../../assets/sounds/Powerfull.mp3";
+import Quiet from "../../assets/sounds/Quiet.mp3";
+import Smooth from "../../assets/sounds/Smooth.mp3";
+import V6 from "../../assets/sounds/V6.mp3";
 
 ///THIS IS THE INDIVIDUAL CAR DISPLAY CARD
 const CarCard = ({ car }) => {
@@ -15,7 +18,7 @@ const CarCard = ({ car }) => {
 
   // Function to add the car to favourites :
   const [isFavorite, setIsFavorite] = useState(false);
-  const [audio] = useState(new Audio(engineSound)); //  audio source is set to the 'engineSound'
+  // const [audio] = useState(new Audio(engineSound)); //  audio source is set to the 'engineSound'
 
   useEffect(() => {
     // Check if the car is already in favorites when the component mounts
@@ -24,17 +27,49 @@ const CarCard = ({ car }) => {
     setIsFavorite(isAlreadyFavorite);
   }, [car.id]);
 
-  const playEngineSound = () => {
-    const audio = new Audio(engineSound);
-    audio.play();
+  const playEngineSound = (engineSoundName) => {
+    if (engineSoundName === "Powerful") {
+      const audio = new Audio(Powerfull);
+      audio.play();
+    }
+    else if (engineSoundName === "Smooth") {
+      const audio = new Audio(Smooth);
+      audio.play();
+    }
+    else if (engineSoundName === "Quiet") {
+      const audio = new Audio(Quiet);
+      audio.play();
+    }
+    else if (engineSoundName === "V6") {
+      const audio = new Audio(V6);
+      audio.play();
+    }   
+    
+    
   };
 
   
  
+  // const addToFavorites = () => {
+  //   const existingFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  //   const isAlreadyFavorite = existingFavorites.some(favorite => favorite.id === car.id);
+
+  //   if (!isAlreadyFavorite) {
+  //     const updatedFavorites = [...existingFavorites, car];
+  //     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+  //     setIsFavorite(true);
+  //     console.log('Added to favorites:', car);
+  //   } else {
+  //     const updatedFavorites = existingFavorites.filter(favorite => favorite.id !== car.id);
+  //     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+  //     setIsFavorite(false);
+  //     console.log('Car is already in favorites:', car);
+  //   } 
+  // };
   const addToFavorites = () => {
     const existingFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
     const isAlreadyFavorite = existingFavorites.some(favorite => favorite.id === car.id);
-
+  
     if (!isAlreadyFavorite) {
       const updatedFavorites = [...existingFavorites, car];
       localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
@@ -46,10 +81,8 @@ const CarCard = ({ car }) => {
       setIsFavorite(false);
       console.log('Car is already in favorites:', car);
     }
-
-    
-
   };
+
   return (
     <div className="car-card">
       <img src={car.image1} alt={car.car_brand} />
@@ -64,7 +97,7 @@ const CarCard = ({ car }) => {
       <button onClick={addToFavorites} className="custom-button">
         {isFavorite ? 'Saved \u2665' : 'Add to Favorites \u2764'}
       </button>
-      <button onClick={playEngineSound} className="engine-button">&#128362;</button>
+      <button onClick={()=>playEngineSound(car.engineSound)} className="engine-button">&#128362;</button>
     </div>
   );
 };
