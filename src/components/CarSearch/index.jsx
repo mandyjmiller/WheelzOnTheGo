@@ -90,18 +90,25 @@ const CarList = ({ cars }) => {
 ///THIS DEFINES THE SEARCH. ALSO HANDLERS TO AVOID ANY ERRORS RESULTING FROM CASE SENSITIVITY
 const CarSearch = ({ data }) => {
   const [type, setType] = useState("");
+  const [brand, setBrand] = useState("");
   const [location, setLocation] = useState("");
   const [filteredCars, setFilteredCars] = useState(data);
 
   const handleSearch = () => {
     const filtered = data.filter((car) => {
       const typeMatch = car.type.toLowerCase().includes(type.toLowerCase());
+      // Added brand search button to search car by brand name
+      const brandMatch = car.car_brand.toLowerCase().includes(brand.toLowerCase()); 
       const locationMatch = car.location
         .toLowerCase()
         .includes(location.toLowerCase());
-      return typeMatch && locationMatch;
+      return typeMatch && locationMatch && brandMatch; 
     });
     setFilteredCars(filtered);
+    // Clears search input 
+    setType("");
+    setBrand("");
+    setLocation("");
   };
 
   ///THIS IS THE SEARCH FORM. WE SHOULD CHANGE type="text" TO LIST POPULATED BY THE AVAILABLE OPTIONS
@@ -115,6 +122,13 @@ const CarSearch = ({ data }) => {
           placeholder="Enter car type"
           value={type}
           onChange={(e) => setType(e.target.value)}
+        />
+         {/* Input for car brand search */}
+                <input
+          type="text"
+          placeholder="Enter car brand name"
+          value={brand}
+          onChange={(e) => setBrand(e.target.value)}
         />
         <input
           type="text"
