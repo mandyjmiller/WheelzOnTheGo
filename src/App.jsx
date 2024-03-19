@@ -15,7 +15,7 @@ import Header from "./components/Header";
 function App() {
   return (
     <Router>
-      <div>  {/* This div is created and routered/ rendered from the Header components folder to display the Header here */}
+      <div className="sticky-top">  {/* This div is created and routered/ rendered from the Header components folder to display the Header here */}
         <Header />
       </div>
       <Routes>
