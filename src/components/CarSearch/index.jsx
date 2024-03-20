@@ -5,6 +5,7 @@ import Powerfull from "../../assets/sounds/Powerfull.mp3";
 import Quiet from "../../assets/sounds/Quiet.mp3";
 import Smooth from "../../assets/sounds/Smooth.mp3";
 import V6 from "../../assets/sounds/V6.mp3";
+import Calendar from "../Calendar/Calendar";
 
 ///THIS IS THE INDIVIDUAL CAR DISPLAY CARD
 const CarCard = ({ car }) => {
@@ -189,7 +190,7 @@ const CarSearch = ({ data }) => {
   ///THIS IS THE SEARCH FORM. WE SHOULD CHANGE type="text" TO LIST POPULATED BY THE AVAILABLE OPTIONS
   //ALSO SHOULD ADD 'DATE SEARCH'
   return (
-    <div>
+    <div className="container-search">
       <h1 className="heading">Search for Cars</h1>
       <div>
         <input
@@ -211,7 +212,9 @@ const CarSearch = ({ data }) => {
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         />
+          <Calendar/>
         <button onClick={handleSearch}>Search</button>
+        
       </div>
       <div className="car-list">
         {/* {filteredCars.map(car => (
