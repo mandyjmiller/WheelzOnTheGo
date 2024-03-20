@@ -12,7 +12,7 @@ import CarSearch from './components/CarSearch';
 import NavBar from './components/NavBar/NavBar.jsx';
 import "./components/NavBar/NavBar.css";
 import Home from "./pages/home/Home"
-import AboutUs from "./pages/about us/about-us";
+import AboutUs from "./pages/about-us/about-us.jsx";
 import  BrowseCars from './pages/BrowseCars';
 import Favourites from './pages/Favourites';
 import Contact from "./pages/contact/Contact";
@@ -26,7 +26,7 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/about-us" element={<AboutUs/>} />
         <Route path= "/browsecars" element={<BrowseCars/>}/>
         <Route path= "/favourites" element={<Favourites/>}/>
         <Route path="/view-all" element={<ViewAll />} />

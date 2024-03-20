@@ -12,13 +12,10 @@ import Logo from "../Logo/index.jsx"
         <Link to="/" className = "title"><Logo/></Link>
     <ul>
         <li>
-            <NavLink to="/about" >About</NavLink>
+            <NavLink to="/about-us" >About</NavLink>
             </li>
         <li>
             <NavLink to="/browse cars" >Browse Cars</NavLink>
-            </li>
-        <li>
-            <NavLink to="/favourites">Favourites ♡</NavLink>
             </li>
         <li>
             <NavLink  to="/view-all">View All</NavLink>
@@ -38,4 +35,8 @@ import Logo from "../Logo/index.jsx"
 
 export default NavBar
 import React from 'react'
+
+{/* <li>
+            <NavLink to="/favourites">Favourites ♡</NavLink>
+            </li> */}
 
