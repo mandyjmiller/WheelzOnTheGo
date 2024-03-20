@@ -82,11 +82,17 @@ const CarCard = ({ car }) => {
       console.log('Car is already in favorites:', car);
     }
   };
-
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  
+  function capitalizeWords(str) {
+    return str.replace(/_/g, ' ').replace(/\b\w/g, match => match.toUpperCase());
+  }
   return (
     <div className="car-card">
       <img src={car.image1} alt={car.car_brand} />
-      <h2>{car.car_brand}</h2>
+      <h2>{capitalizeWords(capitalizeFirstLetter(car.car_brand))}</h2>
       <ul style={{ listStyleType: "none" }}>
         <li>Type: {car.type}</li>
         <li>Location: {car.location}</li>
