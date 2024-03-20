@@ -8,7 +8,7 @@ nav {
     justify-content: space-between;
     align-items: center;   
     background-color: black;
-    position:sticky;
+    /* position:sticky; */
     top: 0;
 }
 
