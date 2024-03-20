@@ -2,11 +2,14 @@
 
 import {Link, NavLink} from "react-router-dom"
 
+import Logo from "../Logo/index.jsx"
+
+
  const NavBar = () => {
   return ( 
    
     <nav>
-        <Link to="/" className = "title">WheelzOnTheGo! </Link>
+        <Link to="/" className = "title"><Logo/></Link>
     <ul>
         <li>
             <NavLink to="/about" >About</NavLink>
