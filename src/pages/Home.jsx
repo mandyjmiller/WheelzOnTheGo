@@ -11,7 +11,7 @@ function Home() {
   return (
     <div>
       <Hero backgroundImage={wheelzLogo}>
-        <h1>WheelzOnTheGo</h1>
+        <br></br>
         <h2>Connecting you with your car</h2>
       </Hero>
       <Container style={{ marginTop: 30 }}>

@@ -11,11 +11,13 @@ import carsData from './assets/car_data.json';
 import CarSearch from './components/CarSearch';
 import NavBar from './components/NavBar/NavBar.jsx';
 import "./components/NavBar/NavBar.css";
-import About from './pages/About';
-import Contact from './pages/Contact';
+import Home from "./pages/home/Home"
+import AboutUs from "./pages/about us/about-us";
 import  BrowseCars from './pages/BrowseCars';
 import Favourites from './pages/Favourites';
-import Home from './pages/Home';
+import Contact from "./pages/contact/Contact";
+import ViewAll from "./pages/view-all/view-all";
+import MySavedCars from "./pages/my-saved-cars/my-saved-cars";
 
 function App() {
   return (
@@ -24,17 +26,43 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path= "/about" element={<About/>}/>
+        <Route path="/about-us" element={<AboutUs />} />
         <Route path= "/browsecars" element={<BrowseCars/>}/>
-        <Route path= "/contact" element={<Contact/>}/>
         <Route path= "/favourites" element={<Favourites/>}/>
-        <Route path= "/home" element={<Home/>}/>
+        <Route path="/view-all" element={<ViewAll />} />
+        <Route path="/my-saved-cars" element={<MySavedCars />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <CarSearch data={carsData} type="Hatchback" location="London" />
     </div>
  </Router>
 );
-}
+  }
+
+
+//function App() {
+  // return (
+  //   <Router>
+  //     <div className="sticky-top">  {/* This div is created and routered/ rendered from the Header components folder to display the Header here */}
+  //       <Header />
+  //     </div>
+  //     <div>
+  //     <Routes>
+        {/* These placehopders can be swapped out Don't need portfolio / Projec*/}
+        // <Route path="/" element={<Home />} />
+        {/* <Route path="/index" element={<Home />} /> */}
+        // <Route path="/portfolio" element={<ProjectGallery />} />
+        // <Route path="/contact" element={<Contact />} />
+        // <Route path="/view-all" element={<ViewAll />} />
+        // <Route path="/about-us" element={<AboutUs />} />
+        // <Route path="/my-saved-cars" element={<MySavedCars />} />
+//       </Routes>
+//       <Footer />
+//       </div>
+//     </Router>
+//   );
+// >>>>>>> a26a0377e1ddaf1cc8987a871de19e987ce3d8f9
+// }
     
 
     // <Router>
@@ -58,9 +86,5 @@ function App() {
 //     </Router>
 //   );
 // }
-
-
-
-
 
 export default App;

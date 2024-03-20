@@ -1,0 +1,24 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Adjust column width as needed */
+  gap: 40px; /* Adjust gap between grid items */
+  color: #ddd;
+}
+
+.grid-item {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+}
+.fav-text {
+  color: #ddd;
+  text-align: center;
+}
