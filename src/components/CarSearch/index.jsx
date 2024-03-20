@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Slider from 'react-slick';
+import Slider from "react-slick";
 import "./style.css";
 import Powerfull from "../../assets/sounds/Powerfull.mp3";
 import Quiet from "../../assets/sounds/Quiet.mp3";
@@ -22,8 +22,11 @@ const CarCard = ({ car }) => {
 
   useEffect(() => {
     // Check if the car is already in favorites when the component mounts
-    const existingFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    const isAlreadyFavorite = existingFavorites.some(favorite => favorite.id === car.id);
+    const existingFavorites =
+      JSON.parse(localStorage.getItem("favorites")) || [];
+    const isAlreadyFavorite = existingFavorites.some(
+      (favorite) => favorite.id === car.id
+    );
     setIsFavorite(isAlreadyFavorite);
   }, [car.id]);
 
@@ -31,25 +34,18 @@ const CarCard = ({ car }) => {
     if (engineSoundName === "Powerful") {
       const audio = new Audio(Powerfull);
       audio.play();
-    }
-    else if (engineSoundName === "Smooth") {
+    } else if (engineSoundName === "Smooth") {
       const audio = new Audio(Smooth);
       audio.play();
-    }
-    else if (engineSoundName === "Quiet") {
+    } else if (engineSoundName === "Quiet") {
       const audio = new Audio(Quiet);
       audio.play();
-    }
-    else if (engineSoundName === "V6") {
+    } else if (engineSoundName === "V6") {
       const audio = new Audio(V6);
       audio.play();
-    }   
-    
-    
+    }
   };
 
-  
- 
   // const addToFavorites = () => {
   //   const existingFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
   //   const isAlreadyFavorite = existingFavorites.some(favorite => favorite.id === car.id);
@@ -64,46 +60,70 @@ const CarCard = ({ car }) => {
   //     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   //     setIsFavorite(false);
   //     console.log('Car is already in favorites:', car);
-  //   } 
+  //   }
   // };
   const addToFavorites = () => {
-    const existingFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    const isAlreadyFavorite = existingFavorites.some(favorite => favorite.id === car.id);
-  
+    const existingFavorites =
+      JSON.parse(localStorage.getItem("favorites")) || [];
+    const isAlreadyFavorite = existingFavorites.some(
+      (favorite) => favorite.id === car.id
+    );
+
     if (!isAlreadyFavorite) {
       const updatedFavorites = [...existingFavorites, car];
-      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
       setIsFavorite(true);
-      console.log('Added to favorites:', car);
+      console.log("Added to favorites:", car);
     } else {
-      const updatedFavorites = existingFavorites.filter(favorite => favorite.id !== car.id);
-      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+      const updatedFavorites = existingFavorites.filter(
+        (favorite) => favorite.id !== car.id
+      );
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
       setIsFavorite(false);
-      console.log('Car is already in favorites:', car);
+      console.log("Car is already in favorites:", car);
     }
   };
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-  
+
   function capitalizeWords(str) {
-    return str.replace(/_/g, ' ').replace(/\b\w/g, match => match.toUpperCase());
+    return str
+      .replace(/_/g, " ")
+      .replace(/\b\w/g, (match) => match.toUpperCase());
   }
+  const [expand, setExpand] = useState(false);
   return (
     <div className="car-card">
       <img src={car.image1} alt={car.car_brand} />
-      <h2>{capitalizeWords(capitalizeFirstLetter(car.car_brand))}</h2>
-      <ul style={{ listStyleType: "none" }}>
-        <li>Type: {car.type}</li>
-        <li>Location: {car.location}</li>
-        <li>Hourly Price: £{car.hourlyPrice}</li>
-        <li>Engine Size: {car.engineSize}</li>
-        <li>Engine Sound: {car.engineSound}</li>
-      </ul>
-      <button onClick={addToFavorites} className="custom-button">
-        {isFavorite ? 'Saved \u2665' : 'Add to Favorites \u2764'}
-      </button>
-      <button onClick={()=>playEngineSound(car.engineSound)} className="engine-button">&#128362;</button>
+      <div className="SeeMoreButton">
+      <h2 id="carBrand">{capitalizeWords(capitalizeFirstLetter(car.car_brand))}</h2>
+      <button id="button" onClick={() => setExpand(true)}>See More</button>
+      </div>
+          <ul style={{ listStyleType: "none" }}>           
+            <li>Location: {car.location}</li>
+            <li>Hourly Price: £{car.hourlyPrice}</li>
+            </ul>
+            {expand ? (
+        <>
+        <ul>
+            <li>Type: {car.type}</li>
+            <li>Engine Size: {car.engineSize}</li>
+            <li>Engine Sound: {car.engineSound}</li>
+          </ul>
+          <button onClick={addToFavorites} className="custom-button">
+            {isFavorite ? "Saved \u2665" : "Add to Favorites \u2764"}
+          </button>
+          <button
+            onClick={() => playEngineSound(car.engineSound)}
+            className="engine-button"
+          >
+            &#128362;
+          </button>
+        </>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };
@@ -144,7 +164,6 @@ const CarList = ({ cars }) => {
 
   return (
     <div>
-      
       <div className="pagination">
         <span>
           Showing {currentRangeStart}-{currentRangeEnd} of {totalCars} results
@@ -163,7 +182,6 @@ const CarList = ({ cars }) => {
           <CarCard key={car.id} car={car} />
         ))}
       </div>
-      
     </div>
   );
 };
@@ -179,14 +197,16 @@ const CarSearch = ({ data }) => {
     const filtered = data.filter((car) => {
       const typeMatch = car.type.toLowerCase().includes(type.toLowerCase());
       // Added brand search button to search car by brand name
-      const brandMatch = car.car_brand.toLowerCase().includes(brand.toLowerCase()); 
+      const brandMatch = car.car_brand
+        .toLowerCase()
+        .includes(brand.toLowerCase());
       const locationMatch = car.location
         .toLowerCase()
         .includes(location.toLowerCase());
-      return typeMatch && locationMatch && brandMatch; 
+      return typeMatch && locationMatch && brandMatch;
     });
     setFilteredCars(filtered);
-    // Clears search input 
+    // Clears search input
     setType("");
     setBrand("");
     setLocation("");
@@ -204,8 +224,8 @@ const CarSearch = ({ data }) => {
           value={type}
           onChange={(e) => setType(e.target.value)}
         />
-         {/* Input for car brand search */}
-                <input
+        {/* Input for car brand search */}
+        <input
           type="text"
           placeholder="Enter car brand name"
           value={brand}
