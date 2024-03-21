@@ -20,7 +20,6 @@ function Header() {
         </ul>
 
        <Link to="/my-saved-cars"><button>My Saved Cars</button></Link>
-       <footer> Made with ❤️️ by WheelzOnTheGo!</footer>
     </div>
   );
 }

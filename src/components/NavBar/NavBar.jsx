@@ -7,15 +7,16 @@ import Logo from "../Logo/index.jsx"
 
  const NavBar = () => {
   return ( 
+    
     <nav className="header-wrapper sticky-top">
         <Link to="/" className = "title"><Logo/></Link>
     <ul>
         <li>
             <NavLink to="/about-us" >About</NavLink>
             </li>
-        <li>
-            <NavLink to="/browse cars" >Browse Cars</NavLink>
-            </li>
+        {/* <li>
+            <NavLink to="/browsecars" >Browse Cars</NavLink>
+            </li> */}
         <li>
             <NavLink  to="/view-all">View All</NavLink>
             </li>
