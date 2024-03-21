@@ -2,6 +2,7 @@ import React from 'react'
 import "./about-us.css"
 const AboutUs = () => {
   return (
+    <div className='Home'>
     <div className='about-us-container'>
         
         <h1 id='aboutUsHeading'>About Us</h1>
@@ -12,6 +13,7 @@ const AboutUs = () => {
         <p>Innovation drives us forward. We continuously seek ways to enhance your car rental experience, from streamlining our booking process with the latest technology to introducing eco-friendly vehicle options for the environmentally conscious traveller.</p>
         <p>Thank you for considering WheelzOnTheGo as your travel companion. Whether you're a first-time renter or a seasoned traveller, we're here to support you every mile of your journey. Let's hit the road together and create unforgettable memories!</p>
         <p>Discover your perfect rental car with us today and see where the road takes you. Welcome WheelzOnTheGo, Where Every Journey is Personal.</p>
+    </div>
     </div>
   )
 }

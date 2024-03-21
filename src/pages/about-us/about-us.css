@@ -1,8 +1,14 @@
+.Home {
+
+    background: black;
+  }
+
 .about-us-container{
 border: 3px dashed grey;
-padding: 15px;
-margin: 25px;
+/* padding: 15px; */
+/* margin: 25px; */
 text-align: center;
+background: black;
 }
 p{
     color: white;

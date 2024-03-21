@@ -10,7 +10,7 @@ const MySavedCars = () => {
   }, []);
 
   return (
-    <div>
+    <div className='Home'>
         <h1 className='fav-text'>Favourites</h1>
     <div className="grid-container">
       {savedCars.map((car, index) => (
