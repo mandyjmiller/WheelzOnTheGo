@@ -24,9 +24,9 @@
 }
 
 .car-card:hover {
-  cursor:pointer;
+  cursor: pointer;
   transform: scale(1.03);
-  box-shadow: whitesmoke
+  box-shadow: whitesmoke;
 }
 
 .card > * {
@@ -57,14 +57,13 @@
   cursor: pointer;
 }
 
-.SeeMoreButton{
+.SeeMoreButton {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-#button{
-
+#button {
   min-width: 15px;
   padding: 2px;
   border-radius: 3px;
@@ -72,16 +71,46 @@
   color: white;
 }
 
-#button:hover{
+#button:hover {
   background-color: white;
   color: black;
 }
 
-#carBrand{
+#carBrand {
   font-size: 25px;
 }
 
-li{
+li {
   font-size: larger;
   text-align: justify;
+}
+
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
+  background-color: white;
+  width: 230px;
+  height: 30px;
+}
+.selectButton1 {
+  height: 30px;
+  margin-bottom: 2px;
+  border-radius: 5px;
+}
+.selectButton2 {
+  height: 30px;
+  margin-bottom: 2px;
+  border-radius: 5px;
+}
+.buttonSeach {
+  width: 230px;
+  height: 30px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: #8c8c8c;
+  color: white;
+}
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root {
+  display: none !important;
+}
+.css-a643pv-MuiStack-root {
+  display: none;
 }

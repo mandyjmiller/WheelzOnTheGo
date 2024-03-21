@@ -5,6 +5,8 @@ import Powerfull from "../../assets/sounds/Powerfull.mp3";
 import Quiet from "../../assets/sounds/Quiet.mp3";
 import Smooth from "../../assets/sounds/Smooth.mp3";
 import V6 from "../../assets/sounds/V6.mp3";
+import Calendar from "../Calendar/Calendar";
+
 
 ///THIS IS THE INDIVIDUAL CAR DISPLAY CARD
 const CarCard = ({ car }) => {
@@ -193,7 +195,7 @@ const CarSearch = ({ data }) => {
           value={type}
           onChange={(e) => setType(e.target.value)}
         /> */}
-        <select value={type} onChange={(e) => setType(e.target.value)}>
+        <select className="selectButton2" value={type} onChange={(e) => setType(e.target.value)}>
           <option value="">Select type</option>
           {types.map((loc, index) => (
             <option key={index} value={loc}>
@@ -208,7 +210,7 @@ const CarSearch = ({ data }) => {
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         /> */}
-        <select value={location} onChange={(e) => setLocation(e.target.value)}>
+        <select className="selectButton1" value={location} onChange={(e) => setLocation(e.target.value)}>
           <option value="">Select location</option>
           {locations.map((loc, index) => (
             <option key={index} value={loc}>
@@ -216,8 +218,9 @@ const CarSearch = ({ data }) => {
             </option>
           ))}
         </select>
+        <Calendar/>
 
-        <button onClick={handleSearch}>Search</button>
+        <button className="buttonSeach" onClick={handleSearch}>Search</button>
       </div>
       <div className="car-list">
         {/* {filteredCars.map(car => (
