@@ -7,8 +7,7 @@ import Logo from "../Logo/index.jsx"
 
  const NavBar = () => {
   return ( 
-    <div className="header-wrapper sticky-top">
-    <nav>
+    <nav className="header-wrapper sticky-top">
         <Link to="/" className = "title"><Logo/></Link>
     <ul>
         <li>
@@ -29,7 +28,6 @@ import Logo from "../Logo/index.jsx"
     </ul>
 
   </nav>
-  </div>
   );
 };
 
