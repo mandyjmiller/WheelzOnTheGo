@@ -12,14 +12,28 @@ This car sharing app known as [WheelzOnTheGo](https://wheelzonthego.netlify.app/
 
 ## Instalation 
 
-No installation required. The Web page can be viewed using modern web browser such as Microsoft Edge, Firefox, chrome amongst other browser.
+As a website user, there are no installation requirements. The Web page can be viewed using modern web browser such as Microsoft Edge, Firefox, chrome amongst other browser.
 
+As a developer, there are some additional installation steps:
 
-## Usage &  Animation 
+generate a starter React app using Vite. You can do this by running `npm create vite@latest wheelz -- --template react`. .
 
-The animation below demonstrates the application functionality:
+* Once you have a `wheelz ` React app generated, cd into your application's directory and run `npm install` to install the base dependencies.
 
-![WheelzOnTheGo](Animation to be added)
+* Once everything has been installed, delete the `src` folder inside of your starter app and replace it with the [src] provided with this project
+
+* Start the app by running `npm run dev` in your terminal and then take a moment to study the HTML code being rendered in the browser at [http://localhost:5173](http://localhost:5173).
+
+Ensure Bootstrap and other paackages are installed using the following:
+
+* npm i --save bootstrap @popperjs/core
+
+* npm install --save react-fontawesome
+
+* npm install react-datepicker --save
+
+* npm install react-datepicker --save
+
 
 ## ScreenShot
 
