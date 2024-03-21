@@ -23,6 +23,12 @@
   justify-content: flex-end;
 }
 
+.car-card:hover {
+  cursor:pointer;
+  transform: scale(1.03);
+  box-shadow: whitesmoke
+}
+
 .card > * {
   margin-top: auto;
 }
