@@ -1,25 +1,8 @@
 .hero {
-  height: 400px;
   background-size: cover;
   background-position: center;
-  position: relative;
-}
-
-.hero::after {
-  content: "";
-  display: block;
-  opacity: .4;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: black;
-}
-
-.hero * {
-  position: relative;
-  z-index: 2;
+  padding: 5px 0; /* Adjust padding as needed */
+  color: white;
 }
 
 .hero h1, .hero h2 {
@@ -30,4 +13,18 @@
   font-size: 60px;
   padding-top: 140px;
   margin-top: 0;
+}
+
+
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 24px; /* Adjust font size for smaller screens */
+  }
+  .hero h2 {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+  .hero p {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
 }
