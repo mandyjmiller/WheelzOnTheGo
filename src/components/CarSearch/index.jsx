@@ -8,6 +8,8 @@ import V6 from "../../assets/sounds/V6.mp3";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 // Add the icons to the library
 library.add(faChevronLeft, faChevronRight);
@@ -146,7 +148,7 @@ const CarList = ({ cars }) => {
   return (
 
           <div>
-            <div class="pagination">
+            <div class="pagination ">
               <span class="pagination-button">
                 Showing {currentRangeStart}-{currentRangeEnd} of {totalCars} results
               </span>
@@ -176,6 +178,7 @@ const CarList = ({ cars }) => {
 const CarSearch = ({ data }) => {
   const [type, setType] = useState("");
   const [location, setLocation] = useState("");
+  const [startDate, setStartDate] = useState(new Date());
   const [filteredCars, setFilteredCars] = useState(data);
 
   ///THIS CREATES AN ARRAY FROM THE CAR DATA TO INCLUDE ALL LOCATIONS IN THE DATA. BETTER THAN HARDCODING IN THE VALUES AS THEY MAY CHANGE
@@ -199,36 +202,57 @@ const CarSearch = ({ data }) => {
   //ALSO SHOULD ADD 'DATE SEARCH'
   return (
     <div>
-        <div>
-          <h1 className="heading">Search for Cars</h1>
-          <div className="row">
-            <div className="col-md-4 mb-3">
-              <select className="form-control" value={type} onChange={(e) => setType(e.target.value)}>
-                <option value="">Select type</option>
-                {types.map((loc, index) => (
-                  <option key={index} value={loc}>
-                    {loc}
-                  </option>
-                ))}
-              </select>
-            </div>
+      <div>
+        <div className="row search">
+          <div className="col-md mb-3">
+            <h1 className="heading">Search for Cars</h1>
+          </div>
+     
+          <div className="col-md mb-3">
+            <select
+              className="form-control"
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+            >
+              <option value="">Select type</option>
+              {types.map((loc, index) => (
+                <option key={index} value={loc}>
+                  {loc}
+                </option>
+              ))}
+            </select>
+          </div>
 
-            <div className="col-md-4 mb-3">
-              <select className="form-control" value={location} onChange={(e) => setLocation(e.target.value)}>
-                <option value="">Select location</option>
-                {locations.map((loc, index) => (
-                  <option key={index} value={loc}>
-                    {loc}
-                  </option>
-                ))}
-              </select>
-            </div>
+          <div className="col-md mb-3">
+            <select
+              className="form-control"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            >
+              <option value="">Select location</option>
+              {locations.map((loc, index) => (
+                <option key={index} value={loc}>
+                  {loc}
+                </option>
+              ))}
+            </select>
+          </div>
 
-            <div className="col-md-4">
-              <button className="btn btn-primary btn-block" onClick={handleSearch}>Search</button>
-            </div>
+          <div className="col-md mb-3">
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              className="form-control"
+            />
+          </div>
+
+          <div className="col-md mb-3">
+            <button className="btn btn-primary btn-block" onClick={handleSearch}>
+              Search
+            </button>
           </div>
         </div>
+      </div>
 
         <div className="car-list">
           <CarList cars={filteredCars} />
