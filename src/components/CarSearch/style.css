@@ -41,8 +41,11 @@
   top: 25%;
 }
 
+
 .pagination {
   color: white;
+  display: flex;
+  justify-content: flex-end;
 }
 .custom-button {
   background-color: white;
@@ -84,4 +87,47 @@
 li{
   font-size: larger;
   text-align: justify;
+}
+
+.heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+button {
+  border-radius: 20px;
+}
+
+.car-list {
+  margin-top: 20px;
+}
+
+.pagination-button {
+  background-color: transparent;
+  min-width: 15px;
+  padding: 10px;  
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  color: white; 
+}
+
+.pagination-button:disabled {
+  color: grey; 
+  cursor: not-allowed;
+}
+
+.pagination-button:focus {
+  outline: none;
+}
+
+.pagination-button i {
+  padding: 10px;
+  margin: 10;
+
 }

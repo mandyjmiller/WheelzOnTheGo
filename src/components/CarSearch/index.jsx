@@ -5,6 +5,13 @@ import Powerfull from "../../assets/sounds/Powerfull.mp3";
 import Quiet from "../../assets/sounds/Quiet.mp3";
 import Smooth from "../../assets/sounds/Smooth.mp3";
 import V6 from "../../assets/sounds/V6.mp3";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+// Add the icons to the library
+library.add(faChevronLeft, faChevronRight);
+
 
 ///THIS IS THE INDIVIDUAL CAR DISPLAY CARD
 const CarCard = ({ car }) => {
@@ -46,7 +53,6 @@ const CarCard = ({ car }) => {
     }
   };
 
-
   const addToFavorites = () => {
     const existingFavorites =
       JSON.parse(localStorage.getItem("favorites")) || [];
@@ -82,16 +88,20 @@ const CarCard = ({ car }) => {
     <div className="car-card">
       <img src={car.image1} alt={car.car_brand} />
       <div className="SeeMoreButton">
-      <h2 id="carBrand">{capitalizeWords(capitalizeFirstLetter(car.car_brand))}</h2>
-      <button id="button" onClick={() => setExpand(true)}>See More</button>
+        <h2 id="carBrand">
+          {capitalizeWords(capitalizeFirstLetter(car.car_brand))}
+        </h2>
+        <button id="button" onClick={() => setExpand(true)}>
+          See More
+        </button>
       </div>
-          <ul style={{ listStyleType: "none" }}>           
-            <li>Location: {car.location}</li>
-            <li>Hourly Price: £{car.hourlyPrice}</li>
-            </ul>
-            {expand ? (
+      <ul style={{ listStyleType: "none" }}>
+        <li>Location: {car.location}</li>
+        <li>Hourly Price: £{car.hourlyPrice}</li>
+      </ul>
+      {expand ? (
         <>
-        <ul>
+          <ul>
             <li>Type: {car.type}</li>
             <li>Engine Size: {car.engineSize}</li>
             <li>Engine Sound: {car.engineSound}</li>
@@ -112,7 +122,6 @@ const CarCard = ({ car }) => {
     </div>
   );
 };
-
 
 const CarList = ({ cars }) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -135,27 +144,33 @@ const CarList = ({ cars }) => {
   const currentRangeEnd = Math.min(indexOfLastCar, totalCars);
 
   return (
-    <div>
-      <div className="pagination">
-        <span>
-          Showing {currentRangeStart}-{currentRangeEnd} of {totalCars} results
-        </span>
 
-        <button onClick={prevPage} disabled={currentPage === 0}>
-          Previous
-        </button>
-        <button onClick={nextPage} disabled={indexOfLastCar >= totalCars}>
-          Next
-        </button>
-      </div>
-      <div className="car-list">
-        {currentCars.map((car) => (
-          <CarCard key={car.id} car={car} />
-        ))}
-      </div>
-    </div>
+          <div>
+            <div class="pagination">
+              <span class="pagination-button">
+                Showing {currentRangeStart}-{currentRangeEnd} of {totalCars} results
+              </span>
+
+              <button onClick={prevPage} disabled={currentPage === 0} class="pagination-button">
+              <FontAwesomeIcon icon="chevron-left" />previous     
+              </button>
+              <button onClick={nextPage} disabled={indexOfLastCar >= totalCars} class="pagination-button">next
+              <FontAwesomeIcon icon="chevron-right" />
+              </button>
+            </div>
+            <div class="car-list">
+              {currentCars.map((car) => (
+                <CarCard key={car.id} car={car} />
+              ))}
+            </div>
+          </div>
+
   );
 };
+
+
+
+
 
 ///THIS DEFINES THE SEARCH. ALSO HANDLERS TO AVOID ANY ERRORS RESULTING FROM CASE SENSITIVITY
 const CarSearch = ({ data }) => {
@@ -180,54 +195,47 @@ const CarSearch = ({ data }) => {
     setFilteredCars(filtered);
   };
 
-  ///THIS IS THE SEARCH FORM. WE SHOULD CHANGE type="text" TO LIST POPULATED BY THE AVAILABLE OPTIONS
+  ///THIS IS THE SEARCH FORM. THEH VALUES ARE A LIST POPULATED BY THE AVAILABLE OPTIONS
   //ALSO SHOULD ADD 'DATE SEARCH'
   return (
     <div>
-      <h1 className="heading">Search for Cars</h1>
-      <div>
-        {/*THIS WAS THE REGULAR TEXT INPUT... NOW REPLACED BY THE <select> below....:
-        /* <input
-          type="text"
-          placeholder="Enter car type"
-          value={type}
-          onChange={(e) => setType(e.target.value)}
-        /> */}
-        <select value={type} onChange={(e) => setType(e.target.value)}>
-          <option value="">Select type</option>
-          {types.map((loc, index) => (
-            <option key={index} value={loc}>
-              {loc}
-            </option>
-          ))}
-        </select>
+        <div>
+          <h1 className="heading">Search for Cars</h1>
+          <div className="row">
+            <div className="col-md-4 mb-3">
+              <select className="form-control" value={type} onChange={(e) => setType(e.target.value)}>
+                <option value="">Select type</option>
+                {types.map((loc, index) => (
+                  <option key={index} value={loc}>
+                    {loc}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-        {/* <input
-          type="text"
-          placeholder="Enter location"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-        /> */}
-        <select value={location} onChange={(e) => setLocation(e.target.value)}>
-          <option value="">Select location</option>
-          {locations.map((loc, index) => (
-            <option key={index} value={loc}>
-              {loc}
-            </option>
-          ))}
-        </select>
+            <div className="col-md-4 mb-3">
+              <select className="form-control" value={location} onChange={(e) => setLocation(e.target.value)}>
+                <option value="">Select location</option>
+                {locations.map((loc, index) => (
+                  <option key={index} value={loc}>
+                    {loc}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-        <button onClick={handleSearch}>Search</button>
-      </div>
-      <div className="car-list">
-        {/* {filteredCars.map(car => (
-          <CarCard key={car.id} car={car} />
-        ))} */}
-        <CarList cars={filteredCars} />
-      </div>
+            <div className="col-md-4">
+              <button className="btn btn-primary btn-block" onClick={handleSearch}>Search</button>
+            </div>
+          </div>
+        </div>
+
+        <div className="car-list">
+          <CarList cars={filteredCars} />
+        </div>
+
     </div>
   );
 };
-
 
 export default CarSearch;
