@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.css";
+import LogoImage from "../../assets/images/logo_1.png";
 
 function Logo() {
   return (
     <div className="">
-<img className="logoImage"src="src/assets/images/logo_1.png" alt="" />
-{/* <p className="wording">Connecting you with your car</p> */}
+<img className="logoImage"src={LogoImage} alt="" />
       
     </div>
   );
